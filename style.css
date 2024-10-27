@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/* Specify font(s) to be used throughout the site and in more specific
+areas, using either @font-face or google fonts */
+
+:root {
+  --primary-color: #6F41C2;
+  --primary-color-dark: #46237A;
+  --secondary-color: #DF2945;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --primary-shadow: #8b8eaf;
+  --extra-light: #faf5ff;
+  --max-width: 1200px;
+  
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  }
