@@ -19,3 +19,97 @@ areas, using either @font-face or google fonts */
   margin: 0;
   box-sizing: border-box;
   }
+
+a:not(nav a ul) {
+  text-decoration: none;
+}
+
+body:not(.logo){
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 99;
+  box-shadow: 0 3px 5px var(--primary-shadow);
+  /* shadow */
+}
+
+nav > .nav__content {
+  /* Styles for direct children of nav with class .nav__content */
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo a {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  /* text affect */
+  color: var(--primary-color);
+  transition: 0.3s;
+}
+nav .logo a:hover {
+  color: var(--secondary-color);
+}
+
+nav .checkbox {
+  display: none;
+}
+
+nav input {
+  display: none;
+}
+nav .checkbox i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.nav__content ul {
+  /* 13-Relational selector */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  transition: left 0.3s;
+}
+
+ul li:nth-child(even) {
+  /* 11-Nth pseudo class */
+  background-color: transparent;
+}
+
+ul li:nth-child(odd) {
+  /* 11-Nth pseudo class */
+  background-color: #ffffff;
+}
+ul li a {
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent; 
+  /* 14.border */
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: 0.3s;
+}
+
+ul li a:hover {
+  border-top-color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+/* Style for the active link */
+ul li.current a {
+  border-top-color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
