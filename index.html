@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Metadata for the webpage -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to external CSS file and font icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
       rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Home Page</title>
   </head>
   <body>
+
+    <!-- Navigation menu -->
     <nav>
-      <div class="nav__content">
+      <div class="nav-content">
         <div class="logo"><a href="index.html">Pavith</a></div>
+        <!-- Checkbox label for responsive menu -->
         <label for="check" class="checkbox">
           <i class="ri-menu-line"></i>
         </label>
         <input type="checkbox" name="check" id="check" />
         <ul>
+          <!-- Navigation links -->
           <li class="current"><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -25,5 +33,62 @@
         </ul>
       </div>
     </nav>
-  </body>
+
+    <!-- Welcome Section -->
+    <section class="section">
+      <div class="section-container">
+        <div class="content">
+          <h1 class="title">
+            Hi I'm <span>Pavith</span>
+          </h1>
+          <div class="home-content">
+            <h2>Full-Stack Developer</h2>
+          </div>
+          <p class="description">
+            Passionate Computer Science undergrad and 
+            full-stack web developer dedicated to building 
+            user-centric digital experiences <br>and leveraging 
+            technology to solve real-world challenges.
+          </p>
+          <div class="action-button">
+            <a href="contact.html" >
+              <button class="button">Contact Me</button>
+            </a>
+          </div>       
+        </div>
+        <div class="image">
+          <img src="images/pavith-homepage.png" alt="Pavith's profile">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Social media links -->
+    <div class="socials">
+      <a href="https://www.instagram.com/_mr_2001__/" target="_blank">
+        <img
+          src="icons/instagram-icon.svg"
+          alt="Instagram"
+          loading="lazy"
+          class="socicon"></a>
+      <a href="www.linkedin.com/in/pavith-bambaravanage-465300293" target="_blank">
+        <img
+          src="icons/linkedin-icon.svg"
+          alt="Linkedin"
+          loading="lazy"
+          class="socicon"></a>
+      <a href="https://github.com/Pavith19" target="_blank">
+        <img src="icons/github-icon.svg" alt="Github" class="socicon"></a>
+    </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Copyright 2024</p>
+    <p >
+      Built By
+      <a href="https://github.com/Pavith19" target="_blank" id="author">
+        Pavith Bambaravanage
+      </a>
+    </p>
+  </footer>
+ </body>
 </html>
