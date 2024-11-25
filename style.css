@@ -1,33 +1,41 @@
+/* Import Google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-/* Specify font(s) to be used throughout the site and in more specific
-areas, using either @font-face or google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+/* Define CSS variables for reuse */
 :root {
   --primary-color: #6F41C2;
   --primary-color-dark: #46237A;
   --secondary-color: #DF2945;
+  --dark-secondary-color: #B02030;
   --text-dark: #1f2937;
   --text-light: #6b7280;
   --primary-shadow: #8b8eaf;
+  --secondary-shadow: #6b6e8f;
   --extra-light: #faf5ff;
+  --semi-transparent-blue-60: rgba(0, 123, 255, 0.6); 
+  --semi-transparent-blue-80: rgba(0, 123, 255, 0.8); 
   --max-width: 1200px;
-  
 }
 
+/* Reset default styles */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  }
+}
 
-a:not(nav a ul) {
+/*Negation pseudo class (1)*/
+a:not(#author) {
   text-decoration: none;
 }
 
+/*Negation pseudo class (2)*/
 body:not(.logo){
   font-family: "Poppins", sans-serif;
 }
 
+/* Styles for the navigation bar */
 nav {
   width: 100%;
   position: fixed;
@@ -36,11 +44,11 @@ nav {
   background-color: #ffffff;
   z-index: 99;
   box-shadow: 0 3px 5px var(--primary-shadow);
-  /* shadow */
+  /* shadow (1) */
 }
 
-nav > .nav__content {
-  /* Styles for direct children of nav with class .nav__content */
+/* Child combinator (1) */
+nav > .nav-content {
   max-width: var(--max-width);
   margin: auto;
   padding: 1.5rem 1rem;
@@ -49,57 +57,64 @@ nav > .nav__content {
   justify-content: space-between;
 }
 
+/* Styles for the logo */
 nav .logo a {
   font-family: 'Great Vibes', cursive;
   font-size: 2rem;
   font-weight: 600;
-  /* text affect */
   color: var(--primary-color);
-  transition: 0.3s;
+  transition: color 0.3s ease; /* Transition (1) */
 }
+
 nav .logo a:hover {
   color: var(--secondary-color);
 }
 
+/* Hide the checkbox used for mobile menu toggling */
 nav .checkbox {
   display: none;
 }
 
+/* Hide the input used for mobile menu toggling */
 nav input {
   display: none;
 }
+
+/* Style the menu toggle icon */
 nav .checkbox i {
   font-size: 2rem;
   color: var(--primary-color);
   cursor: pointer;
 }
 
-.nav__content ul {
+/* Style the navigation links container */
+.nav-content ul {
   /* 13-Relational selector */
   display: flex;
   align-items: center;
   gap: 1rem;
   list-style: none;
-  transition: left 0.3s;
+  transition: left 0.3s; /* Transition (2) */
 }
 
+/* Structural selector (1) */
 ul li:nth-child(even) {
-  /* 11-Nth pseudo class */
+  /* Nth pseudo class (1)  */
   background-color: transparent;
 }
 
+/* Structural selector (2) */
 ul li:nth-child(odd) {
-  /* 11-Nth pseudo class */
+  /*  Nth pseudo class (2) */
   background-color: #ffffff;
 }
 ul li a {
   padding: 0.5rem 1rem;
   border: 2px solid transparent; 
-  /* 14.border */
   text-decoration: none;
   font-weight: 600;
   color: var(--primary-color);
-  transition: 0.3s;
+  transition: all 0.3s ease; /* Transition (3) */
 }
 
 ul li a:hover {
@@ -107,9 +122,494 @@ ul li a:hover {
   border-bottom-color: var(--secondary-color);
   color: var(--secondary-color);
 }
+
 /* Style for the active link */
 ul li.current a {
   border-top-color: var(--secondary-color);
   border-bottom-color: var(--secondary-color);
   color: var(--secondary-color);
 }
+
+/* Styles for the main sections */
+.section,.skills {
+  background-color: var(--extra-light);
+}
+
+/* Structural selector (3) */
+.section-container:first-child {
+  min-height: 100vh;
+  max-width: var(--max-width);
+}
+
+
+.section-container {
+  min-height: 100vh;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0.1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+/* Styles for the content */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Animation for the about section */
+.about-image + #about{
+  /* Relational selector (1) */
+  opacity: 0;
+  /*  Transforms (1) */
+  transform: translateX(30px); 
+  animation: slide-in-right 1.8s forwards; /* Animation (1) */
+}
+
+/*Animation keyframes for the "slide-in-right" effect.*/
+@keyframes slide-in-right {
+  to {
+    opacity: 1;
+    /*  Transforms (2) */
+    transform: translateX(0);
+  }
+}
+
+/* Styles for the titles */
+.title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+/* Styles for the home content title */
+.home-content h2 {
+  font-size: 48px;
+  color: var(--primary-color);
+  /* Text effect (1) */
+  animation: textShine 2s linear infinite; /* Animation (2) */
+}
+
+/* Animation for the home content */
+@keyframes textShine {
+  0% {
+      text-shadow: 2px 2px 4px var(--primary-shadow);
+  }
+  50% {
+      text-shadow: 2px 2px 7px var(--secondary-color);
+  }
+  100% {
+      text-shadow: 2px 2px 4px var(--primary-shadow);
+  }
+}
+
+/* Styles for the about title */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  /* Text effect (2)*/
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);/* shadow (2) */
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.title span {
+  font-weight: 600;
+}
+
+/* Styles for the description */
+.description {
+  line-height: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+/* Styles for the action buttons */
+.action-button {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-button button {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 1rem 2rem;
+  outline: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  transition: all 0.3s ease; /* Transition (4) */
+  cursor: pointer;
+}
+
+.button {
+  color: var(--primary-color);
+
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--extra-light);
+}
+
+/* User action pseudo-class (1) */
+.button:active {
+  background-color: var(--dark-secondary-color); 
+  border: 2px solid var(--dark-secondary-color); 
+  color: var(--extra-light); 
+}
+
+/* Styles for the image containers */
+.image {
+  display: grid;
+  place-items: center;
+}
+
+.image img {
+  width: min(25rem, 90%);
+  border-radius: 100%;
+  /* Animation (3) */
+  animation: firstAnim 2s ease 0s 1 normal forwards, secondAnim 1s ease 2s infinite normal forwards;
+}
+
+.about-image {
+  display: grid;
+  place-items: center;
+}
+
+.about-image img {
+  margin-top: 1rem;
+  width: min(25rem, 80%);
+  border-radius: 10%;
+  animation: firstAnim 2s ease 0s 1 normal forwards, secondAnim 1s ease 2s infinite normal forwards;
+}
+
+/* Animations for the images */
+@keyframes firstAnim {
+	0% {
+		opacity: 0;
+    /*  Transforms (3) */
+		transform: scale(0.6);
+	}
+
+	100% {
+		opacity: 1;
+    /*  Transforms (4) */
+		transform: scale(1);
+	}
+}
+
+/*  Transforms (5) */
+@keyframes secondAnim {
+	0% {
+        transform: translateY(-1.5px);
+    }
+    50% {
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(-1.5px);
+    }
+}
+
+/* Styles for screens 750px wide or smaller */
+@media (max-width:750px) {
+  nav .checkbox {
+    /* Display the mobile menu toggle */
+    display: block;
+  }
+  
+  /* Navigation menu layout for small screens */
+  ul {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 85px);
+    left: -100%;
+    top: 85px;
+    background-color: var(--extra-light);
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  nav #check:checked ~ ul {
+    /* Relational selector (2) */
+    left: 0;
+  }
+
+  ul li a {
+    font-size: 1.25rem;
+  }
+
+  .section-container {
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .image {
+    grid-area: 1/1/2/2;
+  }
+
+  .about-image{
+    grid-area: 1/1/2/2;
+  }
+
+  .action-button {
+    margin: auto;
+  }
+}
+
+/* Styles for the social media icons */
+.socials {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 2%;
+    bottom: 30%;
+}
+.action-button button:hover {
+  transform: translateY(-4px);
+
+}
+
+.socicon {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.6;
+}
+.socicon:hover {
+  opacity: 1;
+}
+
+/* Styles for the skills and form sections */
+  .skills{
+    max-width: 68.75rem;
+    margin: auto;
+    text-align: center;
+    margin-top: 6.5rem;
+    border-radius: 11px;
+    box-shadow: 0 3px 10px var(--primary-shadow); /* shadow (3) */
+  }
+  
+  .skill-header {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+  
+  .skills-wrapper img {
+    padding: 1.25rem;
+  }
+  
+   /* Style the skill icon cards */
+  .icon-card {
+    width: 10rem;
+    height: 9.25rem;
+    background-color: var(--extra-ligh);
+    border-radius: 11px;
+    box-shadow: 0 3px 10px var(--secondary-shadow); /* shadow (4) */
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  /* Styles for the contact section */
+  .contact {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Pseudo elements with generated content (1) */
+  .contact h2::before {
+    /* Generated content for contact header */
+     content: "\1F4E7"; /* Unicode for mail icon */
+     color: var(--secondary-color);
+     margin-right: 0.5em;
+  }
+  
+  /* Pseudo elements with generated content (2) */
+  .contact h2::after {
+    content: "\1F4E7"; /* Unicode for mail icon */
+    color: var(--secondary-color);
+    margin-left: 0.5em;
+ }
+  .contact h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /*Style the contact form container */
+  .contact-form-container {
+    max-width: 40.75rem;
+    margin: 0 auto;
+    padding: 0.9rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px var(--secondary-shadow); /* shadow (5) */
+  }
+
+  /* Style the form labels */
+  label {
+    line-height: 2.7em;
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+  
+  /* Style the textarea */
+  .textarea {
+    min-height: 6.25rem;
+    font-size: 14px;
+  }
+  
+  /* Pseudo elements with generated content (3) */
+  form label::after {
+    content: "*";
+    color: var(--secondary-color);
+    margin-left: 4px;
+  }
+  
+  /* Style the input fields */
+  .input-field {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    border: 2px outset var(--primary-color);
+    font-size: 0.875rem;
+    outline: none;
+  }
+
+  /* Style the input field placeholders */
+  .input-field::placeholder {
+    /* Pseudo elements with generated content (4) */
+    padding: 0.5rem;
+    color: var(--primary-color);
+  }
+
+  /* Style the valid and invalid input fields */
+  .input-field:valid {
+    /*Validity pseudo class */
+    border: 2px solid rgb(9, 235, 9);
+  }
+
+  .input-field:invalid {
+    /*Validity pseudo class */
+    border: 2px solid rgb(219, 4, 25);
+  }
+ 
+  /* Style the submit button */
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    /* Gradient (1) */
+    background: linear-gradient(to right, var(--extra-light), var(--primary-color));
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .submit-btn:hover {
+    color: #f2f2f2;
+    /* Gradient (2) */
+    background: linear-gradient(to left, var(--primary-color), #4a4a4a);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+  }
+  
+  /* User action pseudo-class (2) */
+  .submit-btn:active {
+    color: var(--extra-light); 
+    background-color: var(--primary-color-dark); 
+    border: 2px solid var(--primary-color-dark); 
+  }
+
+  /* Style the card container */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  /* Style the individual cards */
+  .cards {
+    height: auto;
+    width: 250px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px black; /* shadow (6) */
+    margin: 2rem 15px;
+  }
+  
+  /* Style the card images */
+  .cards img {
+    /* Relational selector (3) */
+    width: 100%;
+    height: 11rem;
+  }
+  
+  /* Style the card content */
+  .card-content {
+    padding: 1rem; 
+  }
+  
+  /* Child combinator (2) */
+  .card-content > h3 {
+    font-size: 20px; 
+    margin: 0; 
+  }
+  
+  /* Style the datetime elements */
+  /* Attribute selectors (1) */
+  time[datetime]{
+    font-weight: 600;
+  }
+  
+  /* Style the button */
+  .btn1 {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 10px 20px;
+    /*semi-transparent (1) */
+    background-color: var(--semi-transparent-blue-60);
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Transition (5) */
+  }
+  
+  /* User action pseudo-class (3) */
+  .btn1:hover {
+    /*semi-transparent (2) */
+    background-color: var(--semi-transparent-blue-80);
+  } 
+  
+
+  [alt="skill"] {
+    /* Attribute selectors (2) */
+    border: 2px dashed var(--text-light);
+  }
+  
+  /* Style the footer */
+  footer {
+    font-weight: 500;
+    /* Gradient (3) */
+    background: radial-gradient(circle, #ffffff, #f2e6ff, #e6ccff);
+    padding: 1.25rem;
+    text-align: center;
+    margin: 2rem 0 0;
+  }
+
+ 
