@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
 
+    <!-- Metadata for the webpage -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to external CSS file and font icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Page</title>
+  </head>
+  <body>
+
+    <!-- Navigation menu -->
+    <nav>
+      <div class="nav-content">
+        <div class="logo"><a href="index.html">Pavith</a></div>
+        <label for="check" class="checkbox">
+          <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" />
+        <ul>
+          <!-- Navigation links -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="current"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Contact section -->
+    <section class="skills" id="skills">
+      <div class="skills-wrapper">      
+        <section class="contact" id="contact">
+          <h2>Get In Touch With Me</h2>
+          <div class="contact-form-container">
+              <!-- Form setup to send an email -->
+              <form action="mailto:pavith.20221222@iit.ac.lk" method="post" enctype="text/plain" onsubmit =" return submitForm()" id="data_form" name="form">
+                
+                <!-- Form elements for user input: name, email, and message-->
+                <label for="name">Name</label>
+                <input type="text" id="name" name="sender-name" placeholder="Enter Your Name" class="input-field" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="sender-email" placeholder="Enter Your Email" class="input-field" required>
+      
+                <label for="message">Message</label>
+                <textarea id="message" cols="60" rows="10" placeholder="Enter Your Message" name="message" class="input-field" required></textarea>
+            
+                <input type="submit" value="Submit" id="submit-btn" class="submit-btn"/>
+              </form>
+          </div>
+        </section>      
+    </section>
+
+    <!-- Section for social media links -->
+    <div class="socials">
+      <a href="https://www.instagram.com/_mr_2001__/" target="_blank">
+        <img
+          src="icons/instagram-icon.svg"
+          alt="Instagram"
+          loading="lazy"
+          class="socicon"></a>
+      <a href="www.linkedin.com/in/pavith-bambaravanage-465300293" target="_blank">
+        <img
+          src="icons/linkedin-icon.svg"
+          alt="Linkedin"
+          loading="lazy"
+          class="socicon"></a>
+      <a href="https://github.com/Pavith19" target="_blank">
+        <img src="icons/github-icon.svg" alt="Github" class="socicon"></a>
+    </div>
+  
+    <!-- Footer -->
+    <footer>
+      <p>&copy; Copyright 2024</p>
+      <p >
+        Built By
+        <a href="https://github.com/Pavith19" target="_blank">
+          Pavith Bambaravanage
+        </a>
+      </p>
+    </footer>
+</body>
+</html>
